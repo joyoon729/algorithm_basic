@@ -25,30 +25,42 @@ public:
 		num.push_back(4);num.push_back(9);num.push_back(1);
 		num.push_back(6);num.push_back(2);num.push_back(7);
 		num.push_back(0);
-		n = vector.size();
+		n = num.size();
 	}
 	quickS(int n, vector<int> num):n(n), num(num){}
 	void print();
+	void sort();
+	int partition();
 };
 void quickS::print(){
 	for(int i : num){
 		cout << i ;
-		// if(i==num.at(num.size()-1)) cout << endl;
+		if(i==num.at(num.size()-1)) cout << endl;
 	}
 }
+// pivot : 1/2 지점
+void quickS::sort(){
+	
+}
+int quickS::partition(){
+	
+}
 
+void ssort(char arr[]){
+	int i=0;
+	while(arr[i]!='\0'){
+		cout << arr[i];
+		++i;
+		cout << i << endl;
+	}
+}
 /* main
 ----------------------------------------------------*/
 int main(){
-	int n;
-	cin >> n;
 	vector<int> num;
 	
 	quickS q;
-}
-
-// int main(){
-// 	vector<int> v;
-// 	v.push_back(1);
-// 	cout << v.at(v.size()-1) << endl;
+	q.print();
+	
+	
 }
