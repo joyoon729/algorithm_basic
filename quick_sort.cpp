@@ -1,3 +1,9 @@
+/*
+시간 복잡도
+평균 : O(nlogn)
+최악 : O(n^2)
+----------------------------------------------------*/
+
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -46,48 +52,44 @@ void quickS::start_sort(){
 	sort(start, end); 
 }
 void quickS::sort(int start, int end){
-	// 벡터 크기가 2이상 ex) [0][1] --> 크기 2, end-start = 1
-	// cout << "start: "<<start<<" end: "<<end<<endl;
+	int pivot;
 	if(end-start>0){
-		int pivot = partition(start, end);
-		cout << "pivot : "<<pivot << endl;
-		// print();
+		pivot = partition(start,end);
 		sort(start,pivot-1);
 		sort(pivot+1,end);
 	}
-	cout << "end sort" << endl;	
 }
-// pivot : 1/2 지점
+// pivot : 첫번째 인덱스
 int quickS::partition(int start, int end){
-	int pivot = (end-start)/2;
-	while(start <= end){
-		cout << num.at(start) << " "<< num.at(pivot) << endl;
-		while(start <= end && num.at(start)<=num.at(pivot)){
-			cout << "2";
+	int pivot = start;
+	int o_start = start;
+	int o_end = end;
+	while(start < end){
+		while(num.at(start)<=num.at(pivot) && start < o_end){
 			++start;
 		}
-		cout << num.at(end) << " "<< num.at(pivot) << endl;
-		while(start <= end && num.at(end)>num.at(pivot)){
-			// cout << "3";
+		while(num.at(end)>num.at(pivot) && end > o_start){
 			--end;
 		}
-		if(start <= end){
-			// cout << "start: "<<start<<" end: "<<end<<endl;
+		if(start < end){
 			swap(num.at(start),num.at(end));
 		}else{
-			return start;
+			swap(num.at(pivot), num.at(end));
+			pivot = end;
+			return pivot;
 		}
 	}
+	pivot = end;
+	return pivot;
 }
 
 /* main
 ----------------------------------------------------*/
 int main(){
 	vector<int> num;
-	
+
 	quickS q;
 	q.print();
 	q.start_sort();
 	q.print();
-	
 }
