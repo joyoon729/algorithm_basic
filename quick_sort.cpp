@@ -48,7 +48,6 @@ void quickS::print(){
 void quickS::start_sort(){
 	int start = 0;
 	int end = n-1;
-
 	sort(start, end); 
 }
 void quickS::sort(int start, int end){
