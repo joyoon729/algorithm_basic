@@ -32,6 +32,7 @@ public:
 	void sort();
 	void print();
 };
+// 타 sorting 알고리즘과 같은 메소드 동작을 위해 넣어뒀음
 void insertionS::start_sort(){
 	sort();
 }
