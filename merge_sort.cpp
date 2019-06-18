@@ -90,10 +90,9 @@ void mergeS::print(vector<int> v){
 /* main
 ----------------------------------------------------*/
 int main(){
-	vector<int> num;
-
-	mergeS s;
-	s.print();
-	s.start_sort();
-	s.print();
+	mergeS m;
+	m.print();
+	m.start_sort();
+	m.print();
+	return 0;
 }
