@@ -15,11 +15,10 @@ private:
 	int n;
 	vector<int> num;
 	vector<int> sorted; // 임시 배열
-	static int operation_count;
+	static int mergeS::operation_count = 0;
 public:
 	// 테스트 벡터 생성
 	mergeS(){
-		operation_count = 0;
 		// [5 3 8 4 9 1 6 2 7 0]
 		num.push_back(5);num.push_back(3);num.push_back(8);
 		num.push_back(4);num.push_back(9);num.push_back(1);
@@ -96,10 +95,10 @@ void mergeS::print(vector<int> v){
 
 /* main
 ----------------------------------------------------*/
-int main(){
-	mergeS m;
-	m.print();
-	m.start_sort();
-	m.print();
-	return 0;
-}
+// int main(){
+// 	mergeS m;
+// 	m.print();
+// 	m.start_sort();
+// 	m.print();
+// 	return 0;
+// }
