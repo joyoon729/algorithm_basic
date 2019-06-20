@@ -15,8 +15,8 @@ private:
 	int n;
 	vector<int> num;
 	vector<int> sorted; // 임시 배열
-	static int mergeS::operation_count = 0;
 public:
+	static int operation_count;
 	// 테스트 벡터 생성
 	mergeS(){
 		// [5 3 8 4 9 1 6 2 7 0]
@@ -26,7 +26,10 @@ public:
 		num.push_back(0);
 		n = num.size();
 		sorted.resize(n,-1);
-		// print(sorted);
+	}
+	mergeS(int n, vector<int> num):n(n){
+		this->num = num;
+		sorted.resize(n,-1);
 	}
 	void start_sort();
 	void divide(int left, int right);
@@ -34,7 +37,9 @@ public:
 	void print();
 	void print(vector<int> v);
 };
+int mergeS::operation_count = 0;
 void mergeS::start_sort(){
+	operation_count = 0;
 	int left = 0;
 	int right = n-1;
 	divide(left, right);
