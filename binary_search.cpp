@@ -16,6 +16,49 @@ O(logn)
 
 using namespace std;
 
+void sort(int *arr){
+	void divide(int left, int right){
+		if(left<right){
+			int mid = (left+right)/2;
+			divide(left, mid);
+			divide(mid+1,right);
+			merge(left,mid,right);
+	}
+	void merge(int left, int mid, int right){
+		int i=left, j=mid+1, k=left;
+		while(i<=mid && j<=right){
+			if(num[i]<=num[j]){
+				++operation_count;
+				sorted[k] = num[i];
+				++k; ++i;
+			}else{
+				++operation_count;
+				sorted[k] = num[j];
+				++k; ++j;
+			}
+		}
+		if(i>mid){
+			while(j<=right){
+				++operation_count;
+				sorted[k] = num[j];
+				++k; ++j;			
+			}
+		}
+		if(j>right){
+			while(i<=mid){
+				++operation_count;
+				sorted[k] = num[i];
+				++k; ++i;			
+			}
+
+		}
+		for(int index=left; index<right+1; ++index){
+			++operation_count;
+			num[index] = sorted[index];
+		}
+	}
+}
+
 /* 배열 arr 채우기
 난수 생성 + 중복 제거
 ----------------------------------------------------*/
