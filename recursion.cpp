@@ -24,6 +24,7 @@ void recursion(signed int n){
 	cout << "return   \tn: " << &n << "\ta:" << &a << "\tb:" << &b <<endl;
 }
 
+// '리턴 주소값' 자리에 68 바이트나 차지하는 이유는?
 int main(){
 	int c=0;
 	recursion(c);
